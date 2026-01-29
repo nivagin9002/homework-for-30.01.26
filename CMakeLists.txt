@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 4.0)
-project(hwfor30_01)
+project(GitHW)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(hwfor30_01 main.cpp)
+add_executable(GitHW main.cpp
+        SavingsAccount.cpp
+)
