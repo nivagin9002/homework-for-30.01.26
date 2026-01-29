@@ -4,14 +4,16 @@
 
 #ifndef UNTITLED_CHECKINGACCOUNT_H
 #define UNTITLED_CHECKINGACCOUNT_H
-
+#include <iostream>
+#include <string>
 
 class CheckingAccount {
 private:
     long balance;
     int transactionCount;
     long feePerTransaction;
-private:
+public:
+    CheckingAccount();
     CheckingAccount(long b,int tc, long fpt) : balance(b), transactionCount(tc), feePerTransaction(fpt) {}
     long deposit(double amount);
     long withdraw(double amount);
