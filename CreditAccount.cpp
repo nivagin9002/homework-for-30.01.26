@@ -1,46 +1,43 @@
 #include "CreditAccount.h"
+#include <iostream>
+using namespace std;
 
 void CreditAccount::borrow(double amount) {
 	if ((debt + amount) <= creditLimit)
 	{
 		debt += amount;
-		cout << "Вы успешно взяли долг на сумму " << amount << endl;
-		cout << "Сумма ваших долгов составляет " << debt << endl;
+		cout << "Р’С‹ СѓСЃРїРµС€РЅРѕ РІР·СЏР»Рё РєСЂРµРґРёС‚ РЅР° СЃСѓРјРјСѓ " << amount << endl;
+		cout << "РўРµРєСѓС‰РёР№ РґРѕР»Рі СЃРѕСЃС‚Р°РІР»СЏРµС‚ " << debt << endl;
 	}
 	else
-		cout << "Вы не можете взять данную сумму в долг ибо привысите кредитный лимит\n";
+		cout << "Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РІР·СЏС‚СЊ С‚Р°РєСѓСЋ СЃСѓРјРјСѓ, РѕРЅР° РїСЂРµРІС‹С€Р°РµС‚ Р»РёРјРёС‚ РєСЂРµРґРёС‚Р°\n";
 }
+
 void CreditAccount::replay(double amount) {
 	if (amount <= 0)
-		cout << "Ошибка ввода!";
-	if (amount < debt)
+		cout << "РќРµРєРѕСЂСЂРµРєС‚РЅР°СЏ СЃСѓРјРјР°!";
+	else if (amount < debt)
 	{
 		debt -= amount;
-		cout << "Вы успешно погасили часть долгов на сумму " << amount << " !\n";
-		cout << "Сумма ваших долгов составляет " << debt << endl;
+		cout << "Р’С‹ РїРѕРіР°СЃРёР»Рё С‡Р°СЃС‚СЊ РґРѕР»РіР° РЅР° СЃСѓРјРјСѓ " << amount << "!\n";
+		cout << "РўРµРєСѓС‰РёР№ РґРѕР»Рі СЃРѕСЃС‚Р°РІР»СЏРµС‚ " << debt << endl;
 	}
 	else if (amount >= debt)
 	{
 		debt = 0;
-		cout << "Вы успешно погасиливсе свои долги!\n";
+		cout << "Р’С‹ РїРѕР»РЅРѕСЃС‚СЊСЋ РїРѕРіР°СЃРёР»Рё РґРѕР»Рі!\n";
 	}
 }
+
 void CreditAccount::applyMonthlyInterest() {
 	debt = debt + debt * (monthlyInteresyRate / 100);
-	cout << "Вам начислены прценты по долгу!";
-	cout << "Сумма ваших долгов составляет " << debt << endl;
-}
-void CreditAccount::printInfo() {
-	cout << "Сумма ваших долгов составляет: " << debt << endl;
-	cout << "Ваш кредитный лимит: " << creditLimit << endl;
-	cout << "Процентная ставка на ваш кредит: " << monthlyInteresyRate << endl;
+	cout << "РќР°С‡РёСЃР»РµРЅС‹ РїСЂРѕС†РµРЅС‚С‹ Р·Р° РјРµСЃСЏС†!\n";
+	cout << "РўРµРєСѓС‰РёР№ РґРѕР»Рі СЃРѕСЃС‚Р°РІР»СЏРµС‚ " << debt << endl;
 }
 
-/*Тимофей — CreditAccount (Кредитный счёт)
-Поля: debt (текущий долг), creditLimit (максимальный лимит), monthlyInterestRate
-Методы:
-конструктор с параметрами (limit, rate),
-borrow(double amount) — взять в долг (если не превышает лимит),
-repay(double amount) — погасить часть долга,
-applyMonthlyInterest() — начислить проценты на долг,
-printInfo() — вывести долг, лимит и ставку.*/
+void CreditAccount::printInfo() {
+	cout << "РўРµРєСѓС‰РёР№ РґРѕР»Рі: " << debt << endl;
+	cout << "Р›РёРјРёС‚ РєСЂРµРґРёС‚Р°: " << creditLimit << endl;
+	cout << "РџСЂРѕС†РµРЅС‚РЅР°СЏ СЃС‚Р°РІРєР° Р·Р° РјРµСЃСЏС†: " << monthlyInteresyRate << endl;
+}
+

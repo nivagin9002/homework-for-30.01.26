@@ -1,27 +1,17 @@
-//
-// Created by ivans on 1/29/2026.
-//
-
-#ifndef UNTITLED_CHECKINGACCOUNT_H
-#define UNTITLED_CHECKINGACCOUNT_H
-#include <iostream>
-#include <string>
+#ifndef CHECKINGACCOUNT_H
+#define CHECKINGACCOUNT_H
 
 class CheckingAccount {
 private:
-    long balance;
+    double balance;
     int transactionCount;
-    long feePerTransaction;
+    double feePerTransaction;
 public:
-    CheckingAccount();
-    CheckingAccount(long b,int tc, long fpt) : balance(b), transactionCount(tc), feePerTransaction(fpt) {}
-    long deposit(double amount);
-    long withdraw(double amount);
-    int resetTransactions();
+    CheckingAccount(double initialBalance, double fee);
+    void deposit(double amount);
+    void withdraw(double amount);
+    void resetTransactions();
     void printInfo();
-
-
 };
 
-
-#endif //UNTITLED_CHECKINGACCOUNT_H
+#endif
