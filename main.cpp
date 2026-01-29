@@ -1,13 +1,20 @@
 #include "SavingsAccount.h"
+#include "CheckingAccount.h"
 
 
 int main() {
-    SavingsAccount account(1000.0, 0.05);
+    SavingsAccount a(1000.0, 0.05);
 
-    account.deposit(500);
-    account.withdraw(200);
-    account.applyMonthlyInterest();
-    account.printInfo();
+    a.deposit(500);
+    a.withdraw(200);
+    a.applyMonthlyInterest();
+    a.printInfo();
 
-    return 0;
+    CheckingAccount c(184393.95, 0, 4.87);
+    c.deposit(10000);
+    c.withdraw(34000);
+    c.printInfo();
+    c.resetTransactions();
+    c.printInfo();
+
 }
