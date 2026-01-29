@@ -17,7 +17,7 @@ class CreditAccount {
 protected:
 	double debt, creditLimit, monthlyInteresyRate;
 public:
-	CreditAccount(double c, double m) : creditLimit(c), monthlyInteresyRate(m){}
+	CreditAccount(double c, double m) : debt(0),creditLimit(c), monthlyInteresyRate(m){}
 	void borrow(double amount);
 	void replay(double amount);
 	void applyMonthlyInterest();
